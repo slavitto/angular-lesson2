@@ -1,0 +1,49 @@
+<style>
+    .ng-dirty.ng-invalid {
+        border-color: #FA787E;
+    }
+
+    .ng-dirty.ng-valid {
+        border-color: #78FA89;
+    }
+
+</style>
+
+<form name="vm.myAccount" novalidate>
+    <div class="form-group">
+        <label>Ваше Имя</label>
+        <input class="form-control" data-ng-model="vm.newUser.name" type="text" placeholder="имя" required ng-minlength="3" name="myName">
+    </div>
+
+    <div ng-messages="vm.myAccount.myName.$error" ng-if="vm.myAccount.myName.$dirty">
+
+        <div ng-message="required" class="alert alert-danger" role="alert">Пожалуйста введите имя</div>
+        <div ng-message="minlength" class="alert alert-danger" role="alert">Имя слишком короткое</div>
+
+    </div>
+
+    <div class="form-group">
+        <label>Ваш E-mail</label>
+        <input class="form-control" data-ng-model="vm.newUser.email" type="text" placeholder="email" required ng-minlength="3" data-ng-pattern="/^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$/" name="myEmail">
+    </div>
+
+    <div ng-messages="vm.myAccount.myEmail.$error" ng-if="vm.myAccount.myEmail.$dirty">
+
+        <div ng-message="required" class="alert alert-danger" role="alert">Пожалуйста введите email</div>
+        <div ng-message="pattern" class="alert alert-danger">Это не похоже на E-mail</div>
+
+    </div>
+
+    <div class="form-group">
+        <label>Ваш телефон</label>
+        <input class="form-control" data-ng-model="vm.newUser.phone" type="text" placeholder="телефон" data-ng-pattern="/^(\d)+$/" name="myPhone">
+    </div>
+
+    <div role="alert" ng-messages="vm.myAccount.myPhone.$error" ng-if="vm.myAccount.myPhone.$dirty">
+        <div ng-message="pattern" class="alert alert-danger">Это не похоже на телефон</div>
+    </div>
+
+    <button type="submit" class="btn btn-default" data-ng-click="vm.addmy(vm.newUser)" data-ng-disabled="vm.myAccount.$invalid">Добавить
+    </button>
+
+</form>
