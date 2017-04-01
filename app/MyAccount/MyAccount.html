@@ -24,7 +24,7 @@
 
     <div class="form-group">
         <label>Ваш E-mail</label>
-        <input class="form-control" data-ng-model="vm.newUser.email" type="text" placeholder="email" required ng-minlength="3" data-ng-pattern="/^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$/" name="myEmail">
+        <input class="form-control" data-ng-model="vm.newUser.email" type="email" placeholder="email" required ng-minlength="3" data-ng-pattern="/^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$/" name="myEmail">
     </div>
 
     <div ng-messages="vm.myAccount.myEmail.$error" ng-if="vm.myAccount.myEmail.$dirty">
